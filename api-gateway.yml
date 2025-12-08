@@ -1,6 +1,19 @@
 server:
   port: 8080
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway   # add 'gateway' (or use "*")
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    
 spring:
   application:
     name: API-GATEWAY

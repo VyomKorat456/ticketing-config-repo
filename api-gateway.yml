@@ -1,24 +1,9 @@
 server:
   port: 8080
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"   # add 'gateway' (or use "*")
-  endpoint:
-    health:
-      show-details: always
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
     
 spring:
   application:
     name: API-GATEWAY
-  zipkin:
-   enabled: false
   cloud:
     gateway:
       discovery:
@@ -32,8 +17,6 @@ spring:
             - Path=/auth/**
           filters:
       
-            
-
 eureka:
   client:
     service-url:

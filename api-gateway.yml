@@ -17,6 +17,8 @@ logging:
 spring:
   application:
     name: API-GATEWAY
+   zipkin:
+    enabled: false
   cloud:
     gateway:
       discovery:
@@ -29,6 +31,7 @@ spring:
           predicates:
             - Path=/auth/**
           filters:
+      
             
 
 eureka:

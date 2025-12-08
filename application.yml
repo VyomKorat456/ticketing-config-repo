@@ -1,0 +1,19 @@
+management:
+  tracing:
+    sampling:
+      probability: 1.0     # trace all requests (like sleuth.sampler.probability)
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"       # expose actuator endpoints (optional, but useful)
+
+# OpenTelemetry OTLP exporter (Collector running at localhost:4317)
+otel:
+  exporter:
+    otlp:
+      endpoint: http://localhost:4317
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name}, traceId=%X{traceId:-}, spanId=%X{spanId:-}]"

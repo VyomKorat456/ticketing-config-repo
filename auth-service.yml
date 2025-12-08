@@ -4,8 +4,8 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:3306/auth_db
-    username: root
-    password: root
+    username: postgres
+    password: kysz
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:

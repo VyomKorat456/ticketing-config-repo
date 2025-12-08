@@ -17,8 +17,8 @@ logging:
 spring:
   application:
     name: API-GATEWAY
-   zipkin:
-    enabled: false
+  zipkin:
+   enabled: false
   cloud:
     gateway:
       discovery:

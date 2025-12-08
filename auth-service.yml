@@ -6,7 +6,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/auth_db
     username: postgres
     password: kysz
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:

@@ -1,7 +1,7 @@
 server:
   port: 8082
 jwt:
-  secret: YmFzaWMyNTZTdXBlclNlY3JldEtleU1heWJlbG9uZw==
+  secret: thismyverysecurekeyforjwtauthenticationtoken123456
   expiration-ms: 1800000 
 spring:
   datasource:

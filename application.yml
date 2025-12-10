@@ -1,6 +1,7 @@
 app:
   jwt:
   secret: thismyverysecurekeyforjwtauthenticationtoken123456
+  expiration-ms: 1800000 
 management:
   tracing:
     sampling:

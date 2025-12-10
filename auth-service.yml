@@ -1,8 +1,5 @@
 server:
   port: 8082
-jwt:
-  secret: thismyverysecurekeyforjwtauthenticationtoken123456
-  expiration-ms: 1800000 
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/auth_db

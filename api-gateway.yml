@@ -15,14 +15,14 @@ spring:
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth/**
-          filters:
+        
           
         - id: ticket-service
           uri: lb://TICKET-SERVICE
           predicates:
             - Path=/ticket/**
-          filters:
-            - StripPrefix=1
+         
+            
 eureka:
   client:
     service-url:

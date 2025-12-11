@@ -1,5 +1,9 @@
 server:
   port: 8085
+  
+app:
+  attachments:
+    base-dir: "C:/Users/dell/Desktop/Tickets-Microservices/attachment-service/src/main/resources/uplods"
 
 spring:
   application:

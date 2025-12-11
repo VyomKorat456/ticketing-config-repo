@@ -25,6 +25,11 @@ spring:
           uri: lb://COMMENT-SERVICE
           predicates:
             - Path=/comments/**   
+
+        - id: attachment-service
+          uri: lb://ATTACHMENT-SERVICE
+          predicates:
+            - Path=/attachments/**  
             
 eureka:
   client:

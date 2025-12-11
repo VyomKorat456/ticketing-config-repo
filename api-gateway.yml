@@ -15,13 +15,16 @@ spring:
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth/**
-        
-          
+      
         - id: ticket-service
           uri: lb://TICKET-SERVICE
           predicates:
             - Path=/ticket/**
-         
+            
+        - id: comment-service
+          uri: lb://COMMENT-SERVICE
+          predicates:
+            - Path=/comments/**   
             
 eureka:
   client:

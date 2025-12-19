@@ -1,36 +1,68 @@
 server:
   port: 8080
-    
+
 spring:
   application:
     name: API-GATEWAY
+
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
           lower-case-service-id: false
+
       routes:
+        # ===============================
+        # AUTH SERVICE
+        # ===============================
         - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth/**
-      
+
+        # ===============================
+        # TICKET SERVICE
+        # ===============================
         - id: ticket-service
           uri: lb://TICKET-SERVICE
           predicates:
             - Path=/ticket/**
-            
+
+        # ===============================
+        # COMMENT SERVICE
+        # ===============================
         - id: comment-service
           uri: lb://COMMENT-SERVICE
           predicates:
-            - Path=/comments/**   
+            - Path=/comments/**
 
+        # ===============================
+        # ATTACHMENT SERVICE
+        # ===============================
         - id: attachment-service
           uri: lb://ATTACHMENT-SERVICE
           predicates:
-            - Path=/attachments/**  
-            
+            - Path=/attachments/**
+
+        # ===============================
+        # 🔹 SWAGGER ROUTES (ADDED)
+        # ===============================
+        - id: auth-swagger
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/swagger-ui/**,/auth/v3/api-docs
+
+        - id: ticket-swagger
+          uri: lb://TICKET-SERVICE
+          predicates:
+            - Path=/ticket/swagger-ui/**,/ticket/v3/api-docs
+
+        - id: attachment-swagger
+          uri: lb://ATTACHMENT-SERVICE
+          predicates:
+            - Path=/attachments/swagger-ui/**,/attachments/v3/api-docs
+
 eureka:
   client:
     service-url:

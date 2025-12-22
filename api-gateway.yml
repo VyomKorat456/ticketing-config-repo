@@ -13,13 +13,14 @@ spring:
           lower-case-service-id: false
 
       routes:
-        # ===============================
-        # AUTH SERVICE
+         # ===============================
+        # AUTH SERVICE (FIXED FOR OAUTH)
         # ===============================
         - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
-            - Path=/auth/**
+            - Path=/auth/**,/oauth2/**,/login/oauth2/**
+
 
         # ===============================
         # TICKET SERVICE

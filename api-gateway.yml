@@ -1,8 +1,16 @@
 server:
   port: 8080
+
 spring:
+  application:
+    name: API-GATEWAY
+
   cloud:
     gateway:
+
+      # ===============================
+      # 🌍 GLOBAL CORS (WORKING)
+      # ===============================
       globalcors:
         add-to-simple-url-handler-mapping: true
         corsConfigurations:
@@ -19,54 +27,44 @@ spring:
               - "*"
             allowCredentials: true
 
-spring:
-  application:
-    name: API-GATEWAY
-
-  cloud:
-    gateway:
+      # ===============================
+      # 🔍 DISCOVERY
+      # ===============================
       discovery:
         locator:
           enabled: true
           lower-case-service-id: false
 
+      # ===============================
+      # 🚦 ROUTES
+      # ===============================
       routes:
-         # ===============================
-        # AUTH SERVICE (FIXED FOR OAUTH)
-        # ===============================
+
+        # AUTH SERVICE
         - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth/**,/oauth2/**,/login/oauth2/**
 
-
-        # ===============================
         # TICKET SERVICE
-        # ===============================
         - id: ticket-service
           uri: lb://TICKET-SERVICE
           predicates:
             - Path=/ticket/**
 
-        # ===============================
         # COMMENT SERVICE
-        # ===============================
         - id: comment-service
           uri: lb://COMMENT-SERVICE
           predicates:
             - Path=/comments/**
 
-        # ===============================
         # ATTACHMENT SERVICE
-        # ===============================
         - id: attachment-service
           uri: lb://ATTACHMENT-SERVICE
           predicates:
             - Path=/attachments/**
 
-        # ===============================
-        # 🔹 SWAGGER ROUTES (ADDED)
-        # ===============================
+        # SWAGGER
         - id: auth-swagger
           uri: lb://AUTH-SERVICE
           predicates:
